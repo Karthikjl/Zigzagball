@@ -19,7 +19,7 @@ public class uimanager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -30,12 +30,12 @@ public class uimanager : MonoBehaviour
 
     void Start()
     {
-        highscore1.text = "High Score - " + PlayerPrefs.GetInt("highscore");
+        highscore1.text = PlayerPrefs.GetInt("highscore").ToString();
     }
 
     public void gamestart()
     {
-       
+
         taptext.SetActive(false);
         zigzagpanal.GetComponent<Animator>().Play("panalzigzag");
 
@@ -49,14 +49,15 @@ public class uimanager : MonoBehaviour
         gameoverpanal.SetActive(true);
     }
 
-    public void Restart()
+    public void Restartscene()
     {
-        SceneManager.LoadScene(0);
+        // SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
